@@ -5,9 +5,12 @@ export default function Contact() {
     return (
         <section className="py-20 bg-blue-600 text-white" id="contacto">
             <div className="container mx-auto px-4 text-center">
-                <h2 className="text-3xl md:text-4xl font-bold mb-8">¿Listo para comenzar?</h2>
-                <p className="text-blue-100 text-lg mb-12 max-w-2xl mx-auto">
-                    No dejes tus impuestos para última hora. Contáctanos hoy mismo y recibe la atención que mereces.
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">¿Listo para Presentar tus Taxes sin Estrés?</h2>
+                <p className="text-blue-100 text-lg mb-3 max-w-2xl mx-auto">
+                    Contáctanos hoy mismo y recibe ayuda de tu preparador de impuestos en español de confianza.
+                </p>
+                <p className="text-blue-200 text-sm mb-12 max-w-xl mx-auto">
+                    Ayudamos a latinos en Estados Unidos con W2, 1099 y pequeños negocios • Atención rápida y personalizada
                 </p>
 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
@@ -19,7 +22,8 @@ export default function Contact() {
                             <Phone className="w-6 h-6" />
                         </div>
                         <span className="font-semibold text-lg mb-1">Llámanos</span>
-                        <span className="text-blue-100 text-sm">(817) 670-5508</span>
+                        <span className="text-blue-100 text-sm mb-2">(817) 670-5508</span>
+                        <span className="text-blue-200 text-xs">Respuesta inmediata</span>
                     </a>
 
                     <a
@@ -32,7 +36,8 @@ export default function Contact() {
                             <MessageSquare className="w-6 h-6" />
                         </div>
                         <span className="font-semibold text-lg mb-1">WhatsApp</span>
-                        <span className="text-blue-100 text-sm">Envía un mensaje</span>
+                        <span className="text-blue-100 text-sm mb-2">Envía un mensaje</span>
+                        <span className="text-blue-200 text-xs">100% en español</span>
                     </a>
 
                     <a
@@ -43,7 +48,8 @@ export default function Contact() {
                             <Mail className="w-6 h-6" />
                         </div>
                         <span className="font-semibold text-lg mb-1">Email</span>
-                        <span className="text-blue-100 text-sm">service.tax@digisendaai.com</span>
+                        <span className="text-blue-100 text-sm mb-2">service.tax@digisendaai.com</span>
+                        <span className="text-blue-200 text-xs">Te respondemos rápido</span>
                     </a>
 
                     <Link
@@ -55,7 +61,8 @@ export default function Contact() {
                             <Calendar className="w-6 h-6" />
                         </div>
                         <span className="font-bold text-lg mb-1">Agendar Cita</span>
-                        <span className="text-slate-600 text-sm">Reserva tu espacio</span>
+                        <span className="text-slate-600 text-sm mb-2">Consulta gratuita</span>
+                        <span className="text-slate-500 text-xs">Sin compromiso</span>
                     </Link>
                 </div>
             </div>

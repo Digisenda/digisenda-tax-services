@@ -2,18 +2,18 @@ import { ShieldCheck, UserCheck, Scale } from 'lucide-react';
 
 const features = [
     {
-        title: 'Atención Personalizada',
-        description: 'No eres un número más. Analizamos tu situación específica para maximizar tus beneficios legalmente.',
+        title: 'Te Escuchamos de Verdad',
+        description: 'Cada persona tiene una historia diferente. Tomamos el tiempo para entender tu situación y encontrar las mejores opciones para ti, sin apuros.',
         icon: UserCheck
     },
     {
-        title: 'Proceso Claro y Responsable',
-        description: 'Te explicamos cada paso. Sin letras chiquitas ni sorpresas. Sabrás exactamente qué estás presentando.',
+        title: 'Todo en Español, Todo Claro',
+        description: 'Nada de términos complicados que no entiendes. Te explicamos cada documento y cada paso en tu idioma, para que te sientas seguro.',
         icon: Scale
     },
     {
-        title: 'Sin Promesas Falsas',
-        description: 'Hablamos con la verdad. No te prometemos refunds irreales, sino el mejor resultado posible dentro de la ley.',
+        title: 'Honestidad Antes que Todo',
+        description: 'No prometemos milagros ni refunds millonarios. Te decimos la verdad desde el principio para que sepas exactamente qué esperar.',
         icon: ShieldCheck
     }
 ];
@@ -23,9 +23,9 @@ export default function ValueProposition() {
         <section className="py-20 bg-white">
             <div className="container mx-auto px-4">
                 <div className="text-center max-w-2xl mx-auto mb-16">
-                    <h2 className="text-3xl font-bold text-slate-900 mb-4">¿Por qué elegir DigiSenda AI?</h2>
+                    <h2 className="text-3xl font-bold text-slate-900 mb-4">¿Por qué Confiar en Nosotros?</h2>
                     <p className="text-slate-600 text-lg">
-                        Combinamos experiencia y honestidad para brindarte la tranquilidad que necesitas en tus impuestos.
+                        Sabemos que tus impuestos son importantes. Por eso trabajamos con honestidad y cercanía para que te sientas tranquilo durante todo el proceso.
                     </p>
                 </div>
 

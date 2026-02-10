@@ -6,8 +6,14 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Preparador de Taxes en Español | DigiSenda AI Tax Services",
-  description: "Servicios profesionales de preparación de impuestos para latinos en Estados Unidos. Atención personalizada W2, 1099 y pequeños negocios.",
-  keywords: "preparador de taxes en español, preparación de impuestos latinos, ayuda con taxes, W2, 1099, DigiSenda AI",
+  description: "Tu preparador de impuestos de confianza en español. Ayudamos a latinos en Estados Unidos con W2, 1099 y pequeños negocios. Atención personalizada sin promesas falsas de refund.",
+  keywords: "preparador de taxes en español, preparación de impuestos para latinos, ayuda con taxes en español, servicios de impuestos, W2, 1099, small business taxes, DigiSenda AI, preparador de impuestos Estados Unidos, tax preparation español",
+  openGraph: {
+    title: "Preparador de Taxes en Español | DigiSenda AI Tax Services",
+    description: "Ayudamos a latinos en Estados Unidos a presentar sus impuestos con confianza. Atención 100% en español, sin promesas falsas.",
+    locale: "es_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
