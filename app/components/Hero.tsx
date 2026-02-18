@@ -11,10 +11,14 @@ export default function Hero() {
           {/* Branding Section */}
           <div className="text-center mb-8">
             <div className="flex items-center justify-center gap-3 mb-4">
-              {/* Logo placeholder - Usuario agregará logo real */}
-              <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-2xl font-bold">DS</span>
-              </div>
+              {/* Logo real */}
+              <Image 
+                src="/digisenda-logo.svg"
+                alt="DigiSenda AI Logo"
+                width={120}
+                height={120}
+                className="w-32 h-32 brightness-0 invert"
+              />
               <h2 className="text-2xl md:text-3xl font-bold text-blue-400">
                 DigiSenda AI Tax Services
               </h2>
@@ -24,14 +28,14 @@ export default function Hero() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Content */}
             <div className="text-center lg:text-left">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-                Tu Preparador de Taxes en Español que Habla Tu Idioma
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
+                Presenta tus Taxes<br />
+                <span className="text-blue-400">con Confianza,</span><br />
+                No con Miedo
               </h1>
-              <p className="text-lg md:text-xl text-slate-300 mb-4">
-                ¿Sientes que preparar tus impuestos es complicado? No estás solo. Ayudamos a latinos en Estados Unidos a presentar sus taxes con confianza.
-              </p>
-              <p className="text-base text-slate-400 mb-8">
-                Atención personalizada • W2, 1099 y pequeños negocios • Sin promesas falsas de refund
+              <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed">
+                Atención personalizada en español para W2, 1099, trabajadores independientes y ACA. 
+                Te explicamos tu situación y buscamos el mejor resultado posible dentro de la ley.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -64,23 +68,18 @@ export default function Hero() {
 
             {/* Right Column - Human Image */}
             <div className="relative hidden lg:block">
-              {/* Placeholder para imagen humana generada con IA */}
-              {/* Usuario agregará la imagen en /public/hero-tax-professional.jpg */}
               <div className="relative aspect-square max-w-md mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-2xl blur-3xl"></div>
                 <div className="relative bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700">
-                  {/* Imagen humana se agregará aquí */}
-                  <div className="bg-slate-700 rounded-xl aspect-square flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-24 h-24 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                        </svg>
-                      </div>
-                      <p className="text-slate-400 text-sm">Imagen profesional aquí</p>
-                      <p className="text-slate-500 text-xs mt-2">Tu preparador de confianza</p>
-                    </div>
-                  </div>
+                  {/* Imagen profesional real */}
+                  <Image 
+                    src="/hero-tax-professional.jpg"
+                    alt="Preparador de impuestos profesional en español - DigiSenda AI"
+                    width={800}
+                    height={800}
+                    className="rounded-xl object-cover w-full h-full shadow-2xl"
+                    priority
+                  />
                 </div>
               </div>
             </div>
