@@ -15,9 +15,9 @@ export default function Hero() {
               <Image 
                 src="/digisenda-logo.svg"
                 alt="DigiSenda AI Logo"
-                width={80}
-                height={80}
-                className="w-20 h-20"
+                width={120}
+                height={120}
+                className="w-32 h-32 brightness-0 invert"
               />
               <h2 className="text-2xl md:text-3xl font-bold text-blue-400">
                 DigiSenda AI Tax Services
