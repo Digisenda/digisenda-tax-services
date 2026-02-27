@@ -74,7 +74,7 @@ export default function RootLayout({
             "alternateName": "DigiSenda AI",
             "description": "Servicios profesionales de preparación de impuestos para latinos en Estados Unidos. Atención personalizada en español para W2, 1099 y pequeños negocios.",
             "url": "https://tax.digisendaai.com",
-            "telephone": "+1-817-670-5508",
+            "telephone": "+1-830-423-5572",
             "email": "service.tax@digisendaai.com",
             "image": "https://tax.digisendaai.com/hero-tax-professional.jpg",
             "priceRange": "$$",
@@ -204,7 +204,7 @@ export default function RootLayout({
             "logo": "https://tax.digisendaai.com/digisenda-logo.svg",
             "contactPoint": {
               "@type": "ContactPoint",
-              "telephone": "+1-817-670-5508",
+              "telephone": "+1-830-423-5572",
               "contactType": "customer service",
               "availableLanguage": ["Spanish", "English"],
               "areaServed": "US"

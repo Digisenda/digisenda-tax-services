@@ -15,19 +15,19 @@ export default function Contact() {
 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
                     <a
-                        href="tel:8176705508"
+                        href="tel:8304235572"
                         className="group bg-white/10 hover:bg-white/20 backdrop-blur-sm p-6 rounded-xl transition-all border border-white/20 flex flex-col items-center"
                     >
                         <div className="bg-white/20 p-4 rounded-full mb-4 group-hover:scale-110 transition-transform">
                             <Phone className="w-6 h-6" />
                         </div>
                         <span className="font-semibold text-lg mb-1">Llámanos</span>
-                        <span className="text-blue-100 text-sm mb-2">(817) 670-5508</span>
+                        <span className="text-blue-100 text-sm mb-2">(830) 423-5572</span>
                         <span className="text-blue-200 text-xs">Respuesta inmediata</span>
                     </a>
 
                     <a
-                        href="https://wa.me/19405487913"
+                        href="https://wa.me/18304235572"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="group bg-white/10 hover:bg-white/20 backdrop-blur-sm p-6 rounded-xl transition-all border border-white/20 flex flex-col items-center"
