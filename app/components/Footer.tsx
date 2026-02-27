@@ -14,7 +14,7 @@ export default function Footer() {
                     <div>
                         <h4 className="text-white font-semibold mb-4">Contacto</h4>
                         <ul className="space-y-2 text-sm">
-                            <li>(817) 670-5508</li>
+                            <li>(830) 423-5572</li>
                             <li>service.tax@digisendaai.com</li>
                             <li>Texas, Estados Unidos</li>
                         </ul>

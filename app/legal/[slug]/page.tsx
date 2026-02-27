@@ -119,7 +119,7 @@ const legalContent: Record<string, { title: string; content: string }> = {
       <p>Estos términos se rigen por las leyes del estado de Texas, Estados Unidos.</p>
 
       <h3>10. Contacto</h3>
-      <p>Para preguntas sobre estos términos: <a href="mailto:service.tax@digisendaai.com">service.tax@digisendaai.com</a> | Tel: (817) 670-5508</p>
+      <p>Para preguntas sobre estos términos: <a href="mailto:service.tax@digisendaai.com">service.tax@digisendaai.com</a> | Tel: (830) 423-5572</p>
     `,
     },
     disclaimer: {
@@ -216,7 +216,7 @@ const legalContent: Record<string, { title: string; content: string }> = {
       <ul>
         <li><strong>Envíe "STOP"</strong> como respuesta a cualquiera de nuestros mensajes</li>
         <li><strong>Envíe un correo a:</strong> <a href="mailto:service.tax@digisendaai.com">service.tax@digisendaai.com</a> con el asunto "Cancelar SMS"</li>
-        <li><strong>Llame al:</strong> (817) 670-5508 y solicite ser removido de la lista de SMS</li>
+        <li><strong>Llame al:</strong> (830) 423-5572 y solicite ser removido de la lista de SMS</li>
       </ul>
       <p>Recibirá un mensaje de confirmación de cancelación. Tenga en cuenta que aún puede recibir mensajes críticos relacionados con servicios ya contratados.</p>
 
@@ -224,7 +224,7 @@ const legalContent: Record<string, { title: string; content: string }> = {
       <p>Para ayuda con mensajes SMS, envíe <strong>"HELP"</strong> como respuesta a cualquier mensaje o contáctenos en:</p>
       <ul>
         <li>Email: <a href="mailto:service.tax@digisendaai.com">service.tax@digisendaai.com</a></li>
-        <li>Teléfono: (817) 670-5508</li>
+        <li>Teléfono: (830) 423-5572</li>
       </ul>
 
       <h3>6. Tarifas y Cargos</h3>
@@ -256,8 +256,8 @@ const legalContent: Record<string, { title: string; content: string }> = {
       <h3>11. Información de Contacto</h3>
       <p><strong>DigiSenda AI Tax Services</strong><br>
       Email: <a href="mailto:service.tax@digisendaai.com">service.tax@digisendaai.com</a><br>
-      Teléfono: (817) 670-5508<br>
-      WhatsApp: (817) 670-5508<br>
+      Teléfono: (830) 423-5572<br>
+      WhatsApp: (830) 423-5572<br>
       Ubicación: Texas, Estados Unidos</p>
     `,
     },
