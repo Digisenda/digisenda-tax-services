@@ -90,7 +90,7 @@ export default function RootLayout({
         </noscript>
         {/* End Meta Pixel Code */}
 
-        {/* Meta Pixel Custom Events Tracker */}
+        {/* Meta Pixel Standard Events Tracker */}
         <Script id="meta-pixel-events" strategy="afterInteractive">
           {`
             (function() {
@@ -98,16 +98,15 @@ export default function RootLayout({
               
               // Wait for fbq to be available
               if (typeof fbq === 'undefined') {
-                console.warn('[Meta Pixel] fbq not loaded, custom events disabled');
+                console.warn('[Meta Pixel] fbq not loaded, events disabled');
                 return;
               }
 
               /**
-               * Track custom Meta Pixel events based on user interactions
+               * Track Meta Pixel standard events based on user interactions
                * Events tracked:
-               * - CallNowClick: Phone/call button clicks
-               * - ScheduleClick: Appointment form button clicks
-               * - WhatsAppClick: WhatsApp button clicks
+               * - Contact: Phone call button clicks (botón "Llámanos")
+               * - Schedule: Appointment form button clicks (botón "Agendar Cita")
                */
               function trackMetaEvents(event) {
                 try {
@@ -125,7 +124,8 @@ export default function RootLayout({
                   const ariaLabel = (element.getAttribute('aria-label') || '').toLowerCase();
                   const dataAction = element.getAttribute('data-action') || '';
 
-                  // Event 1: Phone Call Click (tel: links or "llamar" text)
+                  // Standard Event: Contact (Phone Call Button)
+                  // Triggers on "Llámanos" button clicks
                   if (
                     href.startsWith('tel:') || 
                     text.includes('llamar') || 
@@ -134,30 +134,12 @@ export default function RootLayout({
                     ariaLabel.includes('teléfono') ||
                     dataAction === 'call'
                   ) {
-                    fbq('trackCustom', 'CallNowClick', {
-                      button_text: text.substring(0, 50),
-                      phone_number: href.replace('tel:', ''),
-                      source_page: window.location.pathname
-                    });
-                    console.log('[Meta Pixel] CallNowClick tracked');
+                    fbq('track', 'Contact');
+                    console.log('[Meta Pixel] Contact event tracked (Llámanos button)');
                   }
 
-                  // Event 2: WhatsApp Click (wa.me links or "whatsapp" text)
-                  else if (
-                    href.includes('wa.me') || 
-                    href.includes('whatsapp') || 
-                    text.includes('whatsapp') ||
-                    ariaLabel.includes('whatsapp') ||
-                    dataAction === 'whatsapp'
-                  ) {
-                    fbq('trackCustom', 'WhatsAppClick', {
-                      button_text: text.substring(0, 50),
-                      source_page: window.location.pathname
-                    });
-                    console.log('[Meta Pixel] WhatsAppClick tracked');
-                  }
-
-                  // Event 3: Schedule/Appointment Click (Google Forms or "agendar" text)
+                  // Standard Event: Schedule (Appointment Form Button)
+                  // Triggers on "Agendar Cita" button clicks
                   else if (
                     href.includes('forms.gle') || 
                     href.includes('google.com/forms') ||
@@ -170,12 +152,8 @@ export default function RootLayout({
                     ariaLabel.includes('cita') ||
                     dataAction === 'schedule'
                   ) {
-                    fbq('trackCustom', 'ScheduleClick', {
-                      button_text: text.substring(0, 50),
-                      form_url: href,
-                      source_page: window.location.pathname
-                    });
-                    console.log('[Meta Pixel] ScheduleClick tracked');
+                    fbq('track', 'Schedule');
+                    console.log('[Meta Pixel] Schedule event tracked (Agendar Cita button)');
                   }
 
                 } catch (error) {
@@ -187,11 +165,11 @@ export default function RootLayout({
               document.addEventListener('click', trackMetaEvents, true);
 
               // Log successful initialization
-              console.log('[Meta Pixel] Custom events tracker initialized');
+              console.log('[Meta Pixel] Standard events tracker initialized');
             })();
           `}
         </Script>
-        {/* End Meta Pixel Custom Events */}
+        {/* End Meta Pixel Standard Events */}
 
         {/* Schema.org LocalBusiness Markup */}
         <Script id="schema-local-business" type="application/ld+json">
