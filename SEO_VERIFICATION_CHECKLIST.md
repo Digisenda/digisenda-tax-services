@@ -12,17 +12,21 @@ Este documento contiene una lista de verificación completa para validar que tod
 
 | Elemento | Estado | Ubicación | Validado |
 |----------|--------|-----------|----------|
-| Google Analytics 4 | ✅ Implementado | `app/layout.tsx` líneas 51-65 | ⏳ Pendiente validación en producción |
-| Schema.org LocalBusiness | ✅ Implementado | `app/layout.tsx` líneas 67-195 | ⏳ Pendiente Rich Results Test |
-| Schema.org Organization | ✅ Implementado | `app/layout.tsx` líneas 197-213 | ⏳ Pendiente Rich Results Test |
-| Schema.org WebSite | ✅ Implementado | `app/layout.tsx` líneas 215-230 | ⏳ Pendiente Rich Results Test |
-| Meta Tags SEO | ✅ Implementado | `app/layout.tsx` líneas 8-41 | ⏳ Pendiente validación |
-| Open Graph Tags | ✅ Implementado | `app/layout.tsx` líneas 12-19 | ⏳ Pendiente validación |
-| Twitter Card | ✅ Implementado | `app/layout.tsx` líneas 20-24 | ⏳ Pendiente validación |
+| Google Analytics 4 | ✅ Implementado | `app/layout.tsx` líneas 52-65 | ⏳ Pendiente validación en producción |
+| Meta Pixel (Facebook) | ✅ Implementado | `app/layout.tsx` líneas 67-91 | ⏳ Pendiente validación en producción |
+| Schema.org LocalBusiness | ✅ Implementado | `app/layout.tsx` líneas 93-220 | ⏳ Pendiente Rich Results Test |
+| Schema.org Organization | ✅ Implementado | `app/layout.tsx` líneas 222-239 | ⏳ Pendiente Rich Results Test |
+| Schema.org WebSite | ✅ Implementado | `app/layout.tsx` líneas 241-257 | ⏳ Pendiente Rich Results Test |
+| Meta Tags SEO | ✅ Implementado | `app/layout.tsx` líneas 9-42 | ⏳ Pendiente validación |
+| Open Graph Tags | ✅ Implementado | `app/layout.tsx` líneas 13-20 | ⏳ Pendiente validación |
+| Twitter Card | ✅ Implementado | `app/layout.tsx` líneas 21-25 | ⏳ Pendiente validación |
 | Sitemap.xml | ✅ Implementado | `app/sitemap.ts` | ⏳ Pendiente indexación |
 | Robots.txt | ✅ Implementado | `app/robots.ts` | ⏳ Pendiente validación |
-| Lang="es" | ✅ Implementado | `app/layout.tsx` línea 49 | ✅ Correcto |
-| Canonical URL | ✅ Implementado | `app/layout.tsx` líneas 35-37 | ⏳ Pendiente validación |
+| Lang="es" | ✅ Implementado | `app/layout.tsx` línea 50 | ✅ Correcto |
+| Canonical URL | ✅ Implementado | `app/layout.tsx` líneas 36-38 | ⏳ Pendiente validación |
+| Hero Copy Humanizado | ✅ Implementado | `app/components/Hero.tsx` | ✅ Correcto |
+| Logo DigiSenda Visible | ✅ Implementado | `app/components/Hero.tsx` (128x128px) | ✅ Correcto |
+| Número Unificado | ✅ Implementado | Todos los componentes: (830) 423-5572 | ✅ Correcto |
 
 ### 🔴 Pendiente de Configuración Externa
 
@@ -32,7 +36,6 @@ Este documento contiene una lista de verificación completa para validar que tod
 | Envío de Sitemap a GSC | ❌ Pendiente | Enviar `sitemap.xml` manualmente | 🔴 Alta |
 | Google Business Profile | ❌ Pendiente | Crear perfil de negocio | 🟡 Media |
 | Vinculación GA4 ↔ GSC | ❌ Pendiente | Vincular cuentas | 🟡 Media |
-| Meta Pixel (opcional) | ❌ Pendiente | Decidir si implementar | ⚪ Baja |
 
 ---
 
