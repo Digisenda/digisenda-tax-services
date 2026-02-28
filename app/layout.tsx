@@ -90,6 +90,87 @@ export default function RootLayout({
         </noscript>
         {/* End Meta Pixel Code */}
 
+        {/* Meta Pixel Standard Events Tracker */}
+        <Script id="meta-pixel-events" strategy="afterInteractive">
+          {`
+            (function() {
+              'use strict';
+              
+              // Wait for fbq to be available
+              if (typeof fbq === 'undefined') {
+                console.warn('[Meta Pixel] fbq not loaded, events disabled');
+                return;
+              }
+
+              /**
+               * Track Meta Pixel standard events based on user interactions
+               * Events tracked:
+               * - Contact: Phone call button clicks (botón "Llámanos")
+               * - Schedule: Appointment form button clicks (botón "Agendar Cita")
+               */
+              function trackMetaEvents(event) {
+                try {
+                  // Get the clicked element (handle event delegation)
+                  const target = event.target;
+                  if (!target) return;
+
+                  // Find closest clickable element (a, button, or element with role)
+                  const element = target.closest('a, button, [role="button"]');
+                  if (!element) return;
+
+                  // Extract data for analysis
+                  const href = (element.getAttribute('href') || '').toLowerCase();
+                  const text = (element.innerText || element.textContent || '').toLowerCase().trim();
+                  const ariaLabel = (element.getAttribute('aria-label') || '').toLowerCase();
+                  const dataAction = element.getAttribute('data-action') || '';
+
+                  // Standard Event: Contact (Phone Call Button)
+                  // Triggers on "Llámanos" button clicks
+                  if (
+                    href.startsWith('tel:') || 
+                    text.includes('llamar') || 
+                    text.includes('llama') ||
+                    ariaLabel.includes('llamar') ||
+                    ariaLabel.includes('teléfono') ||
+                    dataAction === 'call'
+                  ) {
+                    fbq('track', 'Contact');
+                    console.log('[Meta Pixel] Contact event tracked (Llámanos button)');
+                  }
+
+                  // Standard Event: Schedule (Appointment Form Button)
+                  // Triggers on "Agendar Cita" button clicks
+                  else if (
+                    href.includes('forms.gle') || 
+                    href.includes('google.com/forms') ||
+                    href.includes('calendly') ||
+                    text.includes('agendar') || 
+                    text.includes('cita') ||
+                    text.includes('consulta') ||
+                    text.includes('reservar') ||
+                    ariaLabel.includes('agendar') ||
+                    ariaLabel.includes('cita') ||
+                    dataAction === 'schedule'
+                  ) {
+                    fbq('track', 'Schedule');
+                    console.log('[Meta Pixel] Schedule event tracked (Agendar Cita button)');
+                  }
+
+                } catch (error) {
+                  console.error('[Meta Pixel] Error tracking event:', error);
+                }
+              }
+
+              // Attach global click listener with event delegation
+              document.addEventListener('click', trackMetaEvents, true);
+
+              // Log successful initialization
+              console.log('[Meta Pixel] Standard events tracker initialized');
+            })();
+          `}
+        </Script>
+        {/* End Meta Pixel Standard Events */}
+
         {/* Schema.org LocalBusiness Markup */}
         <Script id="schema-local-business" type="application/ld+json">
           {JSON.stringify({
