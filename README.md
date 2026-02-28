@@ -25,8 +25,9 @@ Landing page de alta conversión diseñada específicamente para captar clientes
 - ✅ **SEO local avanzado** para búsquedas en Texas
 - ✅ **Branding visible** con logo y nombre DigiSenda AI
 - ✅ **Copy emocional** diseñado para conectar con usuarios latinos
-- ✅ **Google Analytics 4** integrado
-- ✅ **Meta Pixel (Facebook)** integrado
+- ✅ **Google Analytics 4** integrado con tracking completo
+- ✅ **Meta Pixel (Facebook)** integrado con eventos personalizados
+- ✅ **Custom Events Tracking**: CallNowClick, WhatsAppClick, ScheduleClick
 - ✅ **Schema.org markup completo** (LocalBusiness, Organization, WebSite)
 
 ## 🚀 Inicio Rápido
@@ -77,6 +78,7 @@ digisenda-tax-services/
 ├── docs/                            # Documentación del proyecto
 │   ├── GOOGLE_SEARCH_CONSOLE_SETUP.md
 │   ├── SEO_VERIFICATION_CHECKLIST.md
+│   ├── META_PIXEL_CUSTOM_EVENTS.md  # Guía de eventos personalizados
 │   └── IMAGE_GENERATION_GUIDE.md
 ├── tailwind.config.ts              # Configuración Tailwind
 ├── next.config.mjs                 # Configuración Next.js
@@ -178,7 +180,13 @@ No se requieren variables de entorno adicionales. Todos los IDs de tracking est�
 - ✅ **Google Analytics 4 (GA4)**: ID `G-4QH3LM3PRB`
 - ✅ **Meta Pixel (Facebook)**: ID `668657552992892`
 - ✅ **Tracking de PageView** automático
+- ✅ **Custom Events** para conversiones:
+  - `CallNowClick` - Clic en botón de llamada
+  - `WhatsAppClick` - Clic en botón de WhatsApp
+  - `ScheduleClick` - Clic en botón de agendar cita
 - ✅ **Estrategia afterInteractive** para mejor performance
+- ✅ **Event delegation** eficiente (un solo listener global)
+- ✅ **Rich event data** con parámetros personalizados
 
 ### 📋 Pendiente de Configuración Externa
 
@@ -290,6 +298,7 @@ No con Miedo
 
 - **GOOGLE_SEARCH_CONSOLE_SETUP.md**: Guía completa para configurar GSC
 - **SEO_VERIFICATION_CHECKLIST.md**: Lista de verificación con 50+ checks
+- **META_PIXEL_CUSTOM_EVENTS.md**: Guía de eventos personalizados de Meta Pixel
 - **IMAGE_GENERATION_GUIDE.md**: Guía para generar imágenes con IA
 - **PRODUCTION_AUDIT.md**: Auditoría técnica pre-producción
 
