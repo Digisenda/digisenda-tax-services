@@ -1,4 +1,4 @@
-import { Phone, Mail, Calendar, MessageSquare } from 'lucide-react';
+import { Phone, Calendar } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Contact() {
@@ -13,56 +13,30 @@ export default function Contact() {
                     Ayudamos a latinos en Estados Unidos con W2, 1099 y pequeños negocios • Atención rápida y personalizada
                 </p>
 
-                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
                     <a
                         href="tel:8304235572"
-                        className="group bg-white/10 hover:bg-white/20 backdrop-blur-sm p-6 rounded-xl transition-all border border-white/20 flex flex-col items-center"
+                        className="group bg-white/10 hover:bg-white/20 backdrop-blur-sm p-8 rounded-xl transition-all border border-white/20 flex flex-col items-center"
                     >
                         <div className="bg-white/20 p-4 rounded-full mb-4 group-hover:scale-110 transition-transform">
-                            <Phone className="w-6 h-6" />
+                            <Phone className="w-7 h-7" />
                         </div>
-                        <span className="font-semibold text-lg mb-1">Llámanos</span>
-                        <span className="text-blue-100 text-sm mb-2">(830) 423-5572</span>
-                        <span className="text-blue-200 text-xs">Respuesta inmediata</span>
-                    </a>
-
-                    <a
-                        href="https://wa.me/18304235572"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group bg-white/10 hover:bg-white/20 backdrop-blur-sm p-6 rounded-xl transition-all border border-white/20 flex flex-col items-center"
-                    >
-                        <div className="bg-white/20 p-4 rounded-full mb-4 group-hover:scale-110 transition-transform">
-                            <MessageSquare className="w-6 h-6" />
-                        </div>
-                        <span className="font-semibold text-lg mb-1">WhatsApp</span>
-                        <span className="text-blue-100 text-sm mb-2">Envía un mensaje</span>
-                        <span className="text-blue-200 text-xs">100% en español</span>
-                    </a>
-
-                    <a
-                        href="mailto:service.tax@digisendaai.com"
-                        className="group bg-white/10 hover:bg-white/20 backdrop-blur-sm p-6 rounded-xl transition-all border border-white/20 flex flex-col items-center"
-                    >
-                        <div className="bg-white/20 p-4 rounded-full mb-4 group-hover:scale-110 transition-transform">
-                            <Mail className="w-6 h-6" />
-                        </div>
-                        <span className="font-semibold text-lg mb-1">Email</span>
-                        <span className="text-blue-100 text-sm mb-2">service.tax@digisendaai.com</span>
-                        <span className="text-blue-200 text-xs">Te respondemos rápido</span>
+                        <span className="font-semibold text-xl mb-1">Llámanos</span>
+                        <span className="text-blue-100 text-base mb-2">(830) 423-5572</span>
+                        <span className="text-blue-200 text-sm">Respuesta inmediata</span>
                     </a>
 
                     <Link
                         href="https://forms.gle/gzgesEnYCBfgf5y37"
                         target="_blank"
-                        className="group bg-white text-blue-600 hover:bg-blue-50 p-6 rounded-xl transition-all shadow-lg flex flex-col items-center transform hover:-translate-y-1"
+                        className="group bg-white text-blue-600 hover:bg-blue-50 p-8 rounded-xl transition-all shadow-lg flex flex-col items-center transform hover:-translate-y-1"
                     >
                         <div className="bg-blue-100 p-4 rounded-full mb-4 text-blue-600">
-                            <Calendar className="w-6 h-6" />
+                            <Calendar className="w-7 h-7" />
                         </div>
-                        <span className="font-bold text-lg mb-1">Agendar Cita</span>
-                        <span className="text-slate-600 text-sm mb-2">Consulta gratuita</span>
-                        <span className="text-slate-500 text-xs">Sin compromiso</span>
+                        <span className="font-bold text-xl mb-1">Agendar Cita</span>
+                        <span className="text-slate-600 text-base mb-2">Consulta gratuita</span>
+                        <span className="text-slate-500 text-sm">Sin compromiso</span>
                     </Link>
                 </div>
             </div>
