@@ -2,7 +2,7 @@
 
 > Sitio web profesional de preparación de impuestos para la comunidad latina en Estados Unidos.
 
-[![Next.js](https://img.shields.io/badge/Next.js-16.1.6-black)](https://nextjs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-16.2.9-black)](https://nextjs.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4.17-38bdf8)](https://tailwindcss.com/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)](https://www.typescriptlang.org/)
 [![Deployment](https://img.shields.io/badge/Deployment-Vercel-black)](https://vercel.com)
@@ -249,7 +249,7 @@ No con Miedo
 
 ## 🛠️ Tecnologías Utilizadas
 
-- **Framework**: Next.js 16.1.6 (App Router)
+- **Framework**: Next.js 16.2.9 (App Router)
 - **Lenguaje**: TypeScript 5.x
 - **Estilos**: Tailwind CSS 3.4.17
 - **Iconos**: Lucide React
@@ -278,6 +278,14 @@ No con Miedo
 - 🎯 CTR 10-15%
 
 ## 🔄 Actualizaciones Recientes
+
+### Junio 2026
+
+**Mantenimiento de dependencias y seguridad**
+- ✅ Next.js actualizado de `16.1.6` a `16.2.9` (corrige vulnerabilidades de severidad alta: SSRF, XSS, bypass de CSRF en Server Actions, cache poisoning, DoS)
+- ✅ Dependencias de desarrollo (ESLint toolchain) actualizadas: `@babel/core`, `ajv`, `brace-expansion`, `flatted`, `js-yaml`, `minimatch`, `picomatch`
+- ✅ `npm run build` verificado: compila correctamente, TypeScript sin errores, 11 páginas estáticas generadas
+- ✅ `npm run dev` verificado en local: servidor disponible en [http://localhost:3000](http://localhost:3000), respuesta HTTP 200
 
 ### Febrero 2026
 
