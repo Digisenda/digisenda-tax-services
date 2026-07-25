@@ -27,8 +27,7 @@ export default function Contact() {
                     </a>
 
                     <Link
-                        href="https://forms.gle/gzgesEnYCBfgf5y37"
-                        target="_blank"
+                        href="#agendar"
                         className="group bg-white text-blue-600 hover:bg-blue-50 p-8 rounded-xl transition-all shadow-lg flex flex-col items-center transform hover:-translate-y-1"
                     >
                         <div className="bg-blue-100 p-4 rounded-full mb-4 text-blue-600">

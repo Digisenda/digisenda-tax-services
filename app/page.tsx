@@ -2,6 +2,7 @@ import Hero from "./components/Hero";
 import ValueProposition from "./components/ValueProposition";
 import HowItWorks from "./components/HowItWorks";
 import Contact from "./components/Contact";
+import LeadForm from "./components/LeadForm";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       <ValueProposition />
       <HowItWorks />
       <Contact />
+      <LeadForm />
       <Footer />
     </main>
   );

@@ -39,9 +39,8 @@ export default function Hero() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Link 
-                  href="https://forms.gle/gzgesEnYCBfgf5y37" 
-                  target="_blank"
+                <Link
+                  href="#agendar"
                   className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-lg transition-colors text-lg shadow-lg hover:shadow-xl"
                 >
                   <Calendar className="w-5 h-5" />
