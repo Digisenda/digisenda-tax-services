@@ -47,8 +47,8 @@ export default function Hero() {
                   <Calendar className="w-5 h-5" />
                   Agendar Consulta Gratis
                 </Link>
-                <a 
-                  href="tel:8304235572" 
+                <a
+                  href="tel:+18304235572"
                   className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-900 font-semibold py-4 px-8 rounded-lg transition-colors text-lg border border-slate-200 hover:border-slate-300"
                 >
                   <Phone className="w-5 h-5" />

@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     canonical: "https://tax.digisendaai.com",
   },
   verification: {
-    google: "google-site-verification-code", // Será configurado en Google Search Console
+    google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || undefined,
   },
 };
 

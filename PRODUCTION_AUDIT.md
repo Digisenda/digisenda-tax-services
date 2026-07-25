@@ -1,6 +1,8 @@
 # 🔍 AUDITORÍA TÉCNICA Y PLAN DE PRODUCCIÓN
 ## DigiSenda AI Tax Services - Landing Page
 
+> ⚠️ **DOCUMENTO HISTÓRICO — DATOS DE CONTACTO OBSOLETOS.** Esta auditoría (9 feb 2026) cita el teléfono `(817) 670-5508`. El teléfono real y vigente del sitio es **(830) 423-5572** (número Twilio con IVR que transfiere al móvil). El botón de WhatsApp mencionado aquí **fue removido** del sitio (commit `24b4324`). Fuente de verdad actual: `docs/PLAN_PUESTA_EN_MARCHA.md` y `CLAUDE.md`.
+
 **Fecha de auditoría:** 9 de febrero de 2026  
 **Versión del código:** 1.0.0  
 **Estado general:** ✅ LISTO PARA PRODUCCIÓN (con acciones pendientes menores)

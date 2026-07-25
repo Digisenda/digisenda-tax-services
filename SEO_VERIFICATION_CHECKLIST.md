@@ -1,5 +1,7 @@
 # ✅ SEO Verification Checklist - DigiSenda AI Tax Services
 
+> ⚠️ **DOCUMENTO HISTÓRICO — DATOS DE CONTACTO OBSOLETOS.** Este checklist cita el teléfono `(817) 670-5508` y un WhatsApp vía Twilio en `(940) 548-7913`. El teléfono real y vigente del sitio es **(830) 423-5572** (número Twilio con IVR que transfiere al móvil). El botón de WhatsApp **fue removido** del sitio (commit `24b4324`) y no debe reintroducirse. Fuente de verdad actual: `docs/PLAN_PUESTA_EN_MARCHA.md` y `CLAUDE.md`.
+
 ## 🎯 Objetivo
 
 Este documento contiene una lista de verificación completa para validar que todos los elementos de SEO local están correctamente implementados en `https://tax.digisendaai.com`.

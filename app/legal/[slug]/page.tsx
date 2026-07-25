@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
 
 export function generateStaticParams() {
     return [
@@ -279,7 +280,7 @@ export default async function LegalPage({ params }: { params: Promise<{ slug: st
                 dangerouslySetInnerHTML={{ __html: page.content }}
             />
             <div className="mt-12 pt-8 border-t border-slate-200">
-                <a href="/" className="text-blue-600 hover:underline">← Volver al inicio</a>
+                <Link href="/" className="text-blue-600 hover:underline">← Volver al inicio</Link>
             </div>
         </div>
     );

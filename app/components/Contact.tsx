@@ -15,7 +15,7 @@ export default function Contact() {
 
                 <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
                     <a
-                        href="tel:8304235572"
+                        href="tel:+18304235572"
                         className="group bg-white/10 hover:bg-white/20 backdrop-blur-sm p-8 rounded-xl transition-all border border-white/20 flex flex-col items-center"
                     >
                         <div className="bg-white/20 p-4 rounded-full mb-4 group-hover:scale-110 transition-transform">
