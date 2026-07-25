@@ -10,9 +10,10 @@ Leer **`docs/PLAN_PUESTA_EN_MARCHA.md`** (tareas de producción de este repo, co
 
 ## Estado (implementación 2026-07-25)
 
-- **S1-S4 completadas.** Landing publicable: SEO (código de Search Console leído desde `NEXT_PUBLIC_GSC_VERIFICATION`), teléfono normalizado a `tel:+18304235572`, docs obsoletas marcadas como históricas, y **formulario propio de leads** (`LeadForm`, sección `#agendar`) que reemplazó al Google Form.
-- CTAs actuales: "Llamar" (`tel:+18304235572`) y "Agendar" (`#agendar`, formulario propio que postea a `/api/lead` → reenvía server-to-server a `admin`'s `/api/leads` con `LEAD_INTAKE_TOKEN`).
+- **S1-S4 completadas en la rama `claude/audit-production-readiness-qyrjto`.** Landing publicable: SEO (código de Search Console leído desde `NEXT_PUBLIC_GSC_VERIFICATION`), teléfono normalizado a `tel:+18304235572`, docs obsoletas marcadas como históricas, y **formulario propio de leads** (`LeadForm`, sección `#agendar`) que reemplazó al Google Form.
+- CTAs actuales (en la rama, no aún en Producción): "Llamar" (`tel:+18304235572`) y "Agendar" (`#agendar`, formulario propio que postea a `/api/lead` → reenvía server-to-server a `admin`'s `/api/leads` con `LEAD_INTAKE_TOKEN`).
 - GA4 (`G-4QH3LM3PRB`) y Meta Pixel (`668657552992892`) siguen cableados sin cambios.
+- **⚠️ `main` (y por tanto Producción en `tax.digisendaai.com`) todavía NO tiene estos cambios.** A diferencia de `admin` (que estaba en 404 total y se fusionó de inmediato), aquí Producción ya funcionaba con el código anterior, así que la fusión a `main` se dejó pendiente de confirmación explícita del usuario antes de tocar un sitio en vivo con tráfico real. Antes de fusionar, preguntar.
 
 ## Datos que NO se deben cambiar sin confirmar
 
