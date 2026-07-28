@@ -1,6 +1,6 @@
 # Memoria del proyecto — digisenda-tax-services (sitio público)
 
-Actualizado: 2026-07-25
+Actualizado: 2026-07-28
 
 Landing pública de DigiSenda AI Tax Services (Next.js, previsto en `tax.digisendaai.com`). Punto de entrada de las campañas orgánicas (redes, email, WhatsApp). El CRM que gestiona los leads vive en un repo separado: `digisenda-tax-admin`.
 
@@ -8,12 +8,12 @@ Landing pública de DigiSenda AI Tax Services (Next.js, previsto en `tax.digisen
 
 Leer **`docs/PLAN_PUESTA_EN_MARCHA.md`** (tareas de producción de este repo, con estado de ejecución). El plan maestro completo (CRM + auditoría Twilio) está en `digisenda-tax-admin/docs/PLAN_PUESTA_EN_MARCHA.md` §1.1.
 
-## Estado (implementación 2026-07-25)
+## Estado (verificado 2026-07-28)
 
-- **S1-S4 completadas en la rama `claude/audit-production-readiness-qyrjto`.** Landing publicable: SEO (código de Search Console leído desde `NEXT_PUBLIC_GSC_VERIFICATION`), teléfono normalizado a `tel:+18304235572`, docs obsoletas marcadas como históricas, y **formulario propio de leads** (`LeadForm`, sección `#agendar`) que reemplazó al Google Form.
-- CTAs actuales (en la rama, no aún en Producción): "Llamar" (`tel:+18304235572`) y "Agendar" (`#agendar`, formulario propio que postea a `/api/lead` → reenvía server-to-server a `admin`'s `/api/leads` con `LEAD_INTAKE_TOKEN`).
+- **S1-S4 completadas y ya en `main`/Producción.** Landing publicable: SEO (código de Search Console leído desde `NEXT_PUBLIC_GSC_VERIFICATION`), teléfono normalizado a `tel:+18304235572`, docs obsoletas marcadas como históricas, y **formulario propio de leads** (`LeadForm`, sección `#agendar`) que reemplazó al Google Form.
+- CTAs actuales en Producción: "Llamar" (`tel:+18304235572`) y "Agendar" (`#agendar`, formulario propio que postea a `/api/lead` → reenvía server-to-server a `admin`'s `/api/leads` con `LEAD_INTAKE_TOKEN`).
 - GA4 (`G-4QH3LM3PRB`) y Meta Pixel (`668657552992892`) siguen cableados sin cambios.
-- **⚠️ `main` (y por tanto Producción en `tax.digisendaai.com`) todavía NO tiene estos cambios.** A diferencia de `admin` (que estaba en 404 total y se fusionó de inmediato), aquí Producción ya funcionaba con el código anterior, así que la fusión a `main` se dejó pendiente de confirmación explícita del usuario antes de tocar un sitio en vivo con tráfico real. Antes de fusionar, preguntar.
+- **`main` ya tiene estos cambios y Producción en `tax.digisendaai.com` los sirve.** Confirmado vía Vercel MCP el 2026-07-28: el deploy de producción activo (`dpl_881Z4i66xfaNkwTVym5XTyevFNei`) es del commit `35a8d07` sobre `main` y está `READY`; sin errores de runtime en el rango consultado. No queda ninguna fusión pendiente de confirmación.
 
 ## Datos que NO se deben cambiar sin confirmar
 
@@ -25,6 +25,7 @@ Leer **`docs/PLAN_PUESTA_EN_MARCHA.md`** (tareas de producción de este repo, co
 ## Pendientes de acción humana
 
 - Cargar el código real de Search Console en `NEXT_PUBLIC_GSC_VERIFICATION` (Vercel).
-- Generar `LEAD_INTAKE_TOKEN` (mismo valor que en el proyecto `admin` de Vercel) y cargar `LEAD_INTAKE_URL` una vez el dominio de `admin` esté conectado.
+- Generar `LEAD_INTAKE_TOKEN` (mismo valor que en el proyecto `admin` de Vercel) y cargar `LEAD_INTAKE_URL=https://admin.tax.digisendaai.com/api/leads` — el dominio de `admin` ya está conectado, así que esto ya puede hacerse.
+- Bloqueante compartido con `admin`: credenciales OAuth de Google pendientes (ver `digisenda-tax-admin/docs/CONTINUITY.md`); no bloquea este repo directamente, pero es el pendiente crítico del proyecto en conjunto.
 
-Rama de trabajo: `claude/audit-production-readiness-qyrjto`.
+Rama de trabajo: `claude/project-status-pending-tasks-64vgmj`.
