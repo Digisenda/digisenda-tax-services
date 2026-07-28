@@ -196,7 +196,7 @@ Activar alertas para:
 - [x] Meta tags optimizados (title, description, keywords)
 - [x] Open Graph tags completos
 - [x] Lang="es" en HTML
-- [ ] **PENDIENTE**: Código de verificación de Google Search Console
+- [x] ~~PENDIENTE: Código de verificación de Google Search Console~~ — **no aplica** (ver nota 2026-07-28 al final del documento)
 
 ### Post-Launch (Después de Desplegar)
 
@@ -241,28 +241,16 @@ Activar alertas para:
 
 ---
 
-## 🔴 IMPORTANTE: Código de Verificación
+## ✅ Nota 2026-07-28: el código de verificación HTML no hace falta
 
-**Acción Requerida Inmediata** (después del merge):
+Esta guía asumía el **Método 1 (Etiqueta HTML)** descrito arriba, pero DigiSenda AI terminó usando el **Método 3 (DNS) a nivel de dominio raíz** descrito en la sección "1.2 Seleccionar Tipo de Propiedad": `digisendaai.com` está registrado como **propiedad de Dominio** en Search Console, verificada por un registro TXT en el DNS del dominio raíz — no como una propiedad de "Prefijo de URL" específica para `tax.digisendaai.com`.
 
-1. Acceder a Google Search Console
-2. Obtener código de verificación
-3. Reemplazar en `app/layout.tsx` línea 39:
-   ```typescript
-   verification: {
-     google: "CODIGO_REAL_AQUI",
-   },
-   ```
-4. Hacer nuevo commit:
-   ```bash
-   git add app/layout.tsx
-   git commit -m "chore: add Google Search Console verification code"
-   git push
-   ```
-5. Verificar en Google Search Console
+Una propiedad de Dominio cubre **automáticamente todos los subdominios y protocolos** del dominio raíz. Confirmado con datos reales de Search Console: `https://tax.digisendaai.com/sitemap.xml` aparece enviado y con estado **Correcto** (5 páginas descubiertas), sin que `app/layout.tsx` haya tenido nunca un código de verificación real — solo el placeholder `"google-site-verification-code"`, que sigue así intencionalmente.
+
+**Conclusión:** dejar el placeholder tal cual. No se necesita generar ni cargar `NEXT_PUBLIC_GSC_VERIFICATION`. Si en el futuro se decide separar `tax.digisendaai.com` en su propia propiedad de Prefijo de URL (no recomendado — fragmenta el reporting sin beneficio de ranking, ver `digisenda-tax-admin/docs/CONTINUITY.md`), recién ahí aplicaría el Método 1 de este documento.
 
 ---
 
-**Última actualización**: 28 de febrero de 2026  
-**Versión**: 1.1  
+**Última actualización**: 28 de julio de 2026 (nota de arquitectura añadida; contenido original de 28 de febrero de 2026 sin cambios)  
+**Versión**: 1.2  
 **Autor**: DigiSenda AI Development Team

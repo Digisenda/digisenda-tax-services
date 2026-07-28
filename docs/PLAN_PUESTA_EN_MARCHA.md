@@ -23,10 +23,11 @@ El botón "Llámanos" apunta al número Twilio (830) 423-5572, que en la cuenta 
 - **Motivo:** en móvil ya funciona; el prefijo `+1` lo hace fiable también desde escritorio y normaliza el formato. Marca al mismo número Twilio (no cambia el flujo IVR).
 - **Aceptación:** clic en "Llamar" inicia la llamada en móvil y escritorio y entra al IVR de Twilio.
 
-### S1 — Verificación de Google Search Console 🟠
-- **Archivo:** `app/layout.tsx` (`metadata.verification.google`)
-- **Cambio:** reemplazar el placeholder `"google-site-verification-code"` por el código real. Recomendado: leerlo de `process.env.NEXT_PUBLIC_GSC_VERIFICATION` y configurarlo en Vercel.
-- **Aceptación:** Search Console verifica el dominio `tax.digisendaai.com` y acepta el sitemap.
+### S1 — Verificación de Google Search Console ✅ resuelto (por decisión de arquitectura, no por código)
+- **Archivo:** `app/layout.tsx` (`metadata.verification.google`) — sigue con el placeholder `"google-site-verification-code"` sin reemplazar, y **no hace falta reemplazarlo**.
+- **Decisión (2026-07-28):** DigiSenda AI registra `digisendaai.com` como **propiedad de Dominio** en Search Console (verificación por DNS a nivel de dominio raíz), no como propiedades de "Prefijo de URL" por sitio. Una propiedad de Dominio cubre automáticamente **todos los subdominios y protocolos**, incluido `tax.digisendaai.com`, sin necesidad de un meta-tag/código de verificación por sitio.
+- **Confirmado con datos reales:** en Search Console, `https://tax.digisendaai.com/sitemap.xml` ya aparece enviado (18 feb 2026) y con estado **Correcto** (5 páginas descubiertas), conviviendo con el sitemap de `https://digisendaai.com/sitemap.xml` bajo la misma vista — exactamente el comportamiento esperado de una propiedad de Dominio.
+- **Conclusión:** `NEXT_PUBLIC_GSC_VERIFICATION`/el meta-tag HTML es un mecanismo alternativo redundante en este caso. No es bloqueante y no hace falta completarlo salvo que se decida crear una propiedad de Prefijo de URL independiente para `tax.digisendaai.com` (no recomendado — ver razonamiento en `digisenda-ai-web` y en `digisenda-tax-admin/docs/CONTINUITY.md`).
 
 ### S3 — Sincronizar documentación obsoleta 🟡
 - **Archivos:** `PRODUCTION_AUDIT.md`, `SEO_VERIFICATION_CHECKLIST.md`

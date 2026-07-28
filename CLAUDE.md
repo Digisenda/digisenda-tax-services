@@ -24,7 +24,7 @@ Leer **`docs/PLAN_PUESTA_EN_MARCHA.md`** (tareas de producción de este repo, co
 
 ## Pendientes de acción humana
 
-- Cargar el código real de Search Console en `NEXT_PUBLIC_GSC_VERIFICATION` (Vercel).
+- ~~Cargar el código real de Search Console en `NEXT_PUBLIC_GSC_VERIFICATION`~~ — **resuelto por decisión de arquitectura (2026-07-28):** `digisendaai.com` está registrado en Search Console como propiedad de Dominio (verificación DNS), que cubre automáticamente todos los subdominios incluido `tax.digisendaai.com`. Confirmado con datos reales: el sitemap de `tax.digisendaai.com` ya está "Correcto" en Search Console sin haber cargado nunca esta variable. No hace falta completar el placeholder de `app/layout.tsx`.
 - Generar `LEAD_INTAKE_TOKEN` (mismo valor que en el proyecto `admin` de Vercel) y cargar `LEAD_INTAKE_URL=https://admin.tax.digisendaai.com/api/leads` — el dominio de `admin` ya está conectado, así que esto ya puede hacerse.
 - Bloqueante compartido con `admin`: credenciales OAuth de Google pendientes (ver `digisenda-tax-admin/docs/CONTINUITY.md`); no bloquea este repo directamente, pero es el pendiente crítico del proyecto en conjunto.
 
