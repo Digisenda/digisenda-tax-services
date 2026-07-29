@@ -1,6 +1,6 @@
 # Memoria del proyecto — digisenda-tax-services (sitio público)
 
-Actualizado: 2026-07-28
+Actualizado: 2026-07-29
 
 Landing pública de DigiSenda AI Tax Services (Next.js, previsto en `tax.digisendaai.com`). Punto de entrada de las campañas orgánicas (redes, email, WhatsApp). El CRM que gestiona los leads vive en un repo separado: `digisenda-tax-admin`.
 
@@ -22,10 +22,10 @@ Leer **`docs/PLAN_PUESTA_EN_MARCHA.md`** (tareas de producción de este repo, co
 - Ignorar los números (817) 670-5508 y (940) 548-7913 en `PRODUCTION_AUDIT.md` / `SEO_VERIFICATION_CHECKLIST.md`: son documentación histórica, ya marcada como obsoleta.
 - **No volver a enlazar el Google Form** como CTA principal — fue reemplazado intencionalmente por `LeadForm` (decisión del usuario, sesión 2026-07-25).
 
-## Pendientes de acción humana
+## Pendientes de acción humana (orden de prioridad, ver `digisenda-tax-admin/docs/CONTINUITY.md` § "Cierre de sesión 2026-07-29")
 
-- ~~Cargar el código real de Search Console en `NEXT_PUBLIC_GSC_VERIFICATION`~~ — **resuelto por decisión de arquitectura (2026-07-28):** `digisendaai.com` está registrado en Search Console como propiedad de Dominio (verificación DNS), que cubre automáticamente todos los subdominios incluido `tax.digisendaai.com`. Confirmado con datos reales: el sitemap de `tax.digisendaai.com` ya está "Correcto" en Search Console sin haber cargado nunca esta variable. No hace falta completar el placeholder de `app/layout.tsx`.
-- Generar `LEAD_INTAKE_TOKEN` (mismo valor que en el proyecto `admin` de Vercel) y cargar `LEAD_INTAKE_URL=https://admin.tax.digisendaai.com/api/leads` — el dominio de `admin` ya está conectado, así que esto ya puede hacerse.
-- Bloqueante compartido con `admin`: credenciales OAuth de Google pendientes (ver `digisenda-tax-admin/docs/CONTINUITY.md`); no bloquea este repo directamente, pero es el pendiente crítico del proyecto en conjunto.
+1. 🔴 **Generar `LEAD_INTAKE_TOKEN`** (mismo valor que en el proyecto `admin` de Vercel) y cargar **`LEAD_INTAKE_URL=https://admin.tax.digisendaai.com/api/leads`** aquí — el dominio de `admin` ya está conectado, así que esto ya puede hacerse. **Urgente:** sin esto, `/api/leads` devuelve 401 y los leads del `LeadForm` no llegan al CRM en producción ahora mismo. No depende de nada más.
+2. Bloqueante compartido con `admin` (no bloquea este repo directamente): credenciales OAuth de Google pendientes — ver `digisenda-tax-admin/docs/CONTINUITY.md`.
+3. ~~Cargar el código real de Search Console en `NEXT_PUBLIC_GSC_VERIFICATION`~~ — **resuelto por decisión de arquitectura (2026-07-28):** `digisendaai.com` está registrado en Search Console como propiedad de Dominio (verificación DNS), que cubre automáticamente todos los subdominios incluido `tax.digisendaai.com`. Confirmado con datos reales: el sitemap de `tax.digisendaai.com` ya está "Correcto" en Search Console sin haber cargado nunca esta variable. No hace falta completar el placeholder de `app/layout.tsx`.
 
-Rama de trabajo: `claude/project-status-pending-tasks-64vgmj`.
+Rama de trabajo: `claude/project-status-pending-tasks-64vgmj`. La PR original (#8) ya se mergeó; los commits de documentación de esta sesión están pusheados encima sin PR propia (a pedido del usuario, "déjalo así por ahora").
