@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { isRateLimited } from '../../lib/rate-limit';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -10,6 +11,14 @@ function isValidPayload(body: unknown): body is {
 } {
     if (!body || typeof body !== 'object') return false;
     const b = body as Record<string, unknown>;
+
+    // Honeypot: a real visitor never fills the hidden "company" field.
+    // Checked here (not just client-side, where LeadForm.tsx already
+    // short-circuits) so a bot posting directly to this route can't
+    // bypass it by skipping the browser JS entirely.
+    if (typeof b.company === 'string' && b.company.trim().length > 0) {
+        return false;
+    }
 
     if (typeof b.name !== 'string' || b.name.trim().length < 2 || b.name.length > 200) {
         return false;
@@ -31,6 +40,13 @@ function isValidPayload(body: unknown): body is {
 }
 
 export async function POST(request: Request) {
+    const forwardedFor = request.headers.get('x-forwarded-for');
+    const ip = forwardedFor ? forwardedFor.split(',')[0]?.trim() : 'unknown';
+
+    if (isRateLimited(ip ?? 'unknown')) {
+        return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
+    }
+
     let body: unknown;
 
     try {
@@ -65,6 +81,7 @@ export async function POST(request: Request) {
                 consent: true,
                 consentChannel: 'WHATSAPP',
             }),
+            signal: AbortSignal.timeout(8000),
         });
 
         if (!res.ok) {

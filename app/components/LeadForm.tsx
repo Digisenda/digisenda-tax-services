@@ -4,6 +4,13 @@ import { useState, type FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import { Loader2 } from 'lucide-react';
 
+declare global {
+    interface Window {
+        gtag?: (...args: unknown[]) => void;
+        fbq?: (...args: unknown[]) => void;
+    }
+}
+
 type Status = 'idle' | 'submitting' | 'error';
 
 export default function LeadForm() {
@@ -30,6 +37,7 @@ export default function LeadForm() {
             phone: formData.get('phone'),
             email: formData.get('email') || undefined,
             consent: formData.get('consent') === 'on',
+            company: formData.get('company'),
         };
 
         try {
@@ -41,6 +49,17 @@ export default function LeadForm() {
 
             if (!res.ok) {
                 throw new Error('request_failed');
+            }
+
+            // Fired only once the CRM confirms the lead was received — not
+            // on button click, unlike the "Schedule" event in layout.tsx's
+            // global click listener, which counts intent regardless of
+            // whether the submit actually succeeded.
+            if (typeof window.gtag === 'function') {
+                window.gtag('event', 'generate_lead');
+            }
+            if (typeof window.fbq === 'function') {
+                window.fbq('track', 'Lead');
             }
 
             router.push('/thank-you');

@@ -45,12 +45,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Env-driven, with the values already live in production as fallback —
+  // so unset env doesn't silently stop tracking, but a preview/staging env
+  // can now override them without a code change.
+  const gaId = process.env.NEXT_PUBLIC_GA_ID || 'G-4QH3LM3PRB';
+  const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID || '668657552992892';
+
   return (
     <html lang="es">
       <head>
         {/* Google Analytics 4 */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-4QH3LM3PRB"
+          src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -58,7 +64,7 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-4QH3LM3PRB', {
+            gtag('config', '${gaId}', {
               page_path: window.location.pathname,
             });
           `}
@@ -75,7 +81,7 @@ export default function RootLayout({
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '668657552992892');
+            fbq('init', '${pixelId}');
             fbq('track', 'PageView');
           `}
         </Script>
@@ -84,7 +90,7 @@ export default function RootLayout({
             height="1" 
             width="1" 
             style={{display: 'none'}}
-            src="https://www.facebook.com/tr?id=668657552992892&ev=PageView&noscript=1"
+            src={`https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1`}
             alt=""
           />
         </noscript>
@@ -242,9 +248,6 @@ export default function RootLayout({
                 "closes": "18:00"
               }
             ],
-            "sameAs": [
-              "https://forms.gle/gzgesEnYCBfgf5y37"
-            ],
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
               "name": "Tax Services",
@@ -287,7 +290,7 @@ export default function RootLayout({
               "@type": "ReserveAction",
               "target": {
                 "@type": "EntryPoint",
-                "urlTemplate": "https://forms.gle/gzgesEnYCBfgf5y37",
+                "urlTemplate": "https://tax.digisendaai.com/#agendar",
                 "actionPlatform": [
                   "http://schema.org/DesktopWebPlatform",
                   "http://schema.org/MobileWebPlatform"
