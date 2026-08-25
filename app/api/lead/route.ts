@@ -39,11 +39,22 @@ function isValidPayload(body: unknown): body is {
     return true;
 }
 
-export async function POST(request: Request) {
+// Vercel appends the real connecting IP as the LAST hop of an existing
+// X-Forwarded-For chain rather than replacing it — the first entry is
+// whatever the client itself sent and is trivially spoofable, which would
+// let a caller defeat the rate limiter by rotating a fake leading IP on
+// every request.
+function realClientIp(request: Request): string {
     const forwardedFor = request.headers.get('x-forwarded-for');
-    const ip = forwardedFor ? forwardedFor.split(',')[0]?.trim() : 'unknown';
+    if (!forwardedFor) return 'unknown';
+    const parts = forwardedFor.split(',').map((p) => p.trim());
+    return parts[parts.length - 1] || 'unknown';
+}
 
-    if (isRateLimited(ip ?? 'unknown')) {
+export async function POST(request: Request) {
+    const ip = realClientIp(request);
+
+    if (isRateLimited(ip)) {
         return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
     }
 
@@ -73,6 +84,7 @@ export async function POST(request: Request) {
             headers: {
                 'Content-Type': 'application/json',
                 'x-lead-intake-token': intakeToken,
+                'x-original-forwarded-for': ip,
             },
             body: JSON.stringify({
                 name: body.name,

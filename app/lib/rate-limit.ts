@@ -5,9 +5,23 @@ const hits = new Map<string, { count: number; resetAt: number }>();
 
 const WINDOW_MS = 60_000;
 const MAX_REQUESTS = 5;
+const MAX_TRACKED_KEYS = 5000;
+
+function pruneExpired(now: number): void {
+    for (const [key, entry] of hits) {
+        if (now > entry.resetAt) {
+            hits.delete(key);
+        }
+    }
+}
 
 export function isRateLimited(key: string): boolean {
     const now = Date.now();
+
+    if (hits.size > MAX_TRACKED_KEYS) {
+        pruneExpired(now);
+    }
+
     const entry = hits.get(key);
 
     if (!entry || now > entry.resetAt) {

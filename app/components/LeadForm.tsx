@@ -40,35 +40,42 @@ export default function LeadForm() {
             company: formData.get('company'),
         };
 
+        let succeeded = false;
         try {
             const res = await fetch('/api/lead', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload),
             });
-
-            if (!res.ok) {
-                throw new Error('request_failed');
-            }
-
-            // Fired only once the CRM confirms the lead was received — not
-            // on button click, unlike the "Schedule" event in layout.tsx's
-            // global click listener, which counts intent regardless of
-            // whether the submit actually succeeded.
-            if (typeof window.gtag === 'function') {
-                window.gtag('event', 'generate_lead');
-            }
-            if (typeof window.fbq === 'function') {
-                window.fbq('track', 'Lead');
-            }
-
-            router.push('/thank-you');
+            succeeded = res.ok;
         } catch {
+            succeeded = false;
+        }
+
+        if (!succeeded) {
             setStatus('error');
             setErrorMessage(
                 'No pudimos enviar tu solicitud. Intenta de nuevo o llámanos directamente.',
             );
+            return;
         }
+
+        // Outside the try/catch above: the lead is already saved in the CRM
+        // at this point, so a throw from analytics or navigation must never
+        // be reported back to the visitor as a failed submission — that
+        // would prompt a resubmit and create a duplicate lead. Fired only
+        // once the CRM confirms the lead was received — not on button
+        // click, unlike the "Schedule" event in layout.tsx's global click
+        // listener, which counts intent regardless of whether the submit
+        // actually succeeded.
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'generate_lead');
+        }
+        if (typeof window.fbq === 'function') {
+            window.fbq('track', 'Lead');
+        }
+
+        router.push('/thank-you');
     }
 
     return (
