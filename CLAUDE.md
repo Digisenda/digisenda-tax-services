@@ -24,6 +24,7 @@ Leer **`docs/PLAN_PUESTA_EN_MARCHA.md`** (tareas de producción de este repo, co
 
 ## Pendientes de acción humana
 
+- **Verificar modo de Cloudflare para `tax.digisendaai.com`** (hallazgo de `/security-review`, 2026-08-25, confianza 0.5 — no bloqueante, pero vale confirmarlo): `app/api/lead/route.ts` ahora toma el *último* IP de `x-forwarded-for` como el real (Vercel añade la IP de conexión real al final de la cadena). Eso es correcto solo si Vercel es el primer salto que termina la conexión del visitante. Si Cloudflare está en modo proxy ("nube naranja") frente a Vercel para este dominio, el salto que Vercel observa es el de Cloudflare, no el del visitante, y el IP guardado en el `AuditLog` del CRM sería el de Cloudflare para el 100% de los envíos. Si Cloudflare está en modo proxy, cambiar a leer `CF-Connecting-IP` en vez de `x-forwarded-for`.
 - Cargar el código real de Search Console en `NEXT_PUBLIC_GSC_VERIFICATION` (Vercel).
 - Generar `LEAD_INTAKE_TOKEN` (mismo valor que en el proyecto `admin` de Vercel) y cargar `LEAD_INTAKE_URL=https://admin.tax.digisendaai.com/api/leads` — el dominio de `admin` ya está conectado, así que esto ya puede hacerse.
 - Bloqueante compartido con `admin`: credenciales OAuth de Google pendientes (ver `digisenda-tax-admin/docs/CONTINUITY.md`); no bloquea este repo directamente, pero es el pendiente crítico del proyecto en conjunto.
