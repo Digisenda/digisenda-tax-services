@@ -25,6 +25,8 @@ Leer **`docs/PLAN_PUESTA_EN_MARCHA.md`** (tareas de producción de este repo, co
 
 ## Pendientes de acción humana
 
+**Lista completa de prioridades del ecosistema (todos los repos + Notion) vive en `digisenda-bexar/CLAUDE.md` §"Estado y prioridades" — actualizada 2026-08-26.** Este repo no tiene ítems críticos propios ahora mismo; el único pendiente aquí:
+
 - Cargar el código real de Search Console en `NEXT_PUBLIC_GSC_VERIFICATION` (Vercel) — sigue pendiente, sin cambios desde 2026-07-28.
 
 **Ya resuelto, no repetir:** ~~Generar `LEAD_INTAKE_TOKEN`/`LEAD_INTAKE_URL`~~ — confirmado configurado y verificado de extremo a extremo con un lead real desde el 2026-07-30 (ver `digisenda-tax-admin/docs/CONTINUITY.md`). ~~Credenciales OAuth de Google pendientes~~ — resuelto 2026-07-30, no bloquea ni este repo ni `admin` (ese bloqueante era de `admin`, no de este repo directamente, y ya está cerrado). ~~Verificar modo de Cloudflare para `tax.digisendaai.com`~~ — verificado por Juan 2026-08-25 en el dashboard de Cloudflare: ninguno de los registros DNS en uso tiene el proxy ("nube naranja") activado, todos están en modo DNS only. Vercel sí es el primer salto real, así que `app/api/lead/route.ts` tomando el último IP de `x-forwarded-for` es correcto tal como está — no cambiar a `CF-Connecting-IP`.
